@@ -1,0 +1,39 @@
+/* CSS HEX */
+ --chrome-white: #e9f3da;
+--mantis: #8dc76d;
+--tan-hide: #f89451;
+--salem: #0e9352;
+--chinook: #9edebe;
+--fruit-salad: #49a650;
+--silver-tree: #58ac86;
+--emerald: #58c488;
+--apple: #33ac41;
+--sea-green: #33956c;
+
+
+/* SCSS HEX */
+$chrome-white: #e9f3da;
+$mantis: #8dc76d;
+$tan-hide: #f89451;
+$salem: #0e9352;
+$chinook: #9edebe;
+$fruit-salad: #49a650;
+$silver-tree: #58ac86;
+$emerald: #58c488;
+$apple: #33ac41;
+$sea-green: #33956c;
+
+
+/* SCSS RGB */
+--chrome-white: rgba(233,243,218,1);
+--mantis: rgba(141,199,109,1);
+--tan-hide: rgba(248,148,81,1);
+--salem: rgba(14,147,82,1);
+--chinook: rgba(158,222,190,1);
+--fruit-salad: rgba(73,166,80,1);
+--silver-tree: rgba(88,172,134,1);
+--emerald: rgba(88,196,136,1);
+--apple: rgba(51,172,65,1);
+--sea-green: rgba(51,149,108,1);
+
+
