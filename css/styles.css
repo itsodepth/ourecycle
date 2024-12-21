@@ -8,3 +8,63 @@
 }
 
 /* Carousel Styling */
+#carouselImg {
+    object-fit: cover;
+    height: 100vh;
+}
+
+@media (max-width: 576px) {
+    #carouselImg {
+        height: 300px !important; /* Set a smaller height for small screens */
+    }
+    .caption-heading {
+        font-size: 1.8rem !important; /* Adjust heading size for small screens */
+    }
+    .caption-text {
+        font-size: 1.2rem !important; /* Adjust text size for small screens */
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Gelap dengan transparansi */
+    z-index: 1; /* Pastikan overlay berada di atas gambar */
+}
+
+.carousel-indicators li {
+    background-color: rgba(255, 255, 255, 0.5); /* Warna latar belakang indikator */
+    width: 10px; /* Lebar indikator */
+    height: 10px; /* Tinggi indikator */
+    margin: 0 2px; /* Jarak antar indikator */
+}
+
+.carousel-indicators .active {
+    background-color: #fff; /* Warna indikator aktif */
+}
+
+/* Styling Our Mission */
+.btn-apple {
+    background-color: #33ac41;
+}
+
+.stat-background {
+    background-color: #33ac41; /* Warna latar belakang */
+    padding-top: 10px; /* Tambahkan padding untuk ruang di dalam */
+    border-radius: 8px; /* Sudut melengkung (opsional) */
+}
+
+/* Styling Card Our Services */
+.card {
+    border: 1px solid #33ac41; /* Warna border */
+    border-radius: 8px; /* Sudut melengkung */
+    transition: transform 0.2s; /* Efek transisi */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+    border-color: #33ac41;
+}
