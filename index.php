@@ -36,6 +36,9 @@
                             <a class="nav-link" href="#layanan">Layanan</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="#jenisSampah">Jenis Sampah</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Histori</a>
                         </li>
                         <li class="nav-item">
@@ -182,7 +185,7 @@
         </div>
 
         <!-- Jenis Sampah -->
-        <div class="container mt-5">
+        <div class="container mt-5" id="jenisSampah">
             <h2 class="text-center">Jenis Sampah</h2>
             <p class="text-center">Lihat semua jenis sampah yang kami daur ulang.</p>
             <div class="row mt-4">
