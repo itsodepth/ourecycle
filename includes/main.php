@@ -156,7 +156,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <a href="plastik.html" class="card text-center text-decoration-none text-reset">
+                    <a href="jenis-sampah/plastik.php" class="card text-center text-decoration-none text-reset">
                         <div class="card-body">
                             <i class="fas fa-recycle fa-3x text-success"></i>
                             <h5 class="card-title mt-3">Plastik</h5>

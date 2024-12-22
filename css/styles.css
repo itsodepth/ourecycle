@@ -79,3 +79,9 @@
     transform: scale(1.05); /* Efek zoom saat hover */
     border-color: #33ac41;
 }
+
+/* Styling card jenis sampah */
+.small-card {
+    width: 80%; /* Atur lebar card sesuai kebutuhan */
+    margin: auto; /* Pusatkan card */
+}
