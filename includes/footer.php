@@ -3,7 +3,7 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3>Contact Me</h3>
+                        <h3>Contact Us</h3>
                         <p>Email: <a href="mailto:info@ourecycle.com" class="text-white">info@ourecycle.com</a></p>
                         <p>Phone: <a href="tel:+628976343725" class="text-white">+62 897-6343-725</a></p>
                     </div>
@@ -27,7 +27,7 @@
                 </div>
                 <hr class="bg-white">
                 <div class="text-center">
-                    <p>© 2023 Ourecycle. All rights reserved.</p>
+                    <p>©2025 OuRecycle. All rights reserved.</p>
                 </div>
             </div>
         </footer>
