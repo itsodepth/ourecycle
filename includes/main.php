@@ -164,7 +164,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <a href="elektronik.html" class="card text-center text-decoration-none text-reset">
+                    <a href="jenis-sampah/elektronik.php" class="card text-center text-decoration-none text-reset">
                         <div class="card-body">
                             <i class="fas fa-plug fa-3x text-info"></i>
                             <h5 class="card-title mt-3">Elektronik</h5>
