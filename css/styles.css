@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "Systopie";
+    src: url("../assets/fonts/SystopieBold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     font-family: "Quicksand";
 }
@@ -5,6 +12,10 @@
 /* Navbar */
 .bg-nav-apple {
     background-color: #33ac41;
+}
+
+.navbar-brand {
+    font-family: "Systopie", sans-serif;
 }
 
 /* Carousel Styling */
