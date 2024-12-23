@@ -172,7 +172,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <a href="jenis-sampah/botol-kaca.php" class="card text-center text-decoration-none text-reset">
+                    <a href="botol-kaca.html" class="card text-center text-decoration-none text-reset">
                         <div class="card-body">
                             <i class="fas fa-glass-whiskey fa-3x text-danger"></i>
                             <h5 class="card-title mt-3">Botol Kaca</h5>
@@ -180,7 +180,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <a href="jenis-sampah/besi-logam.php" class="card text-center text-decoration-none text-reset">
+                    <a href="besi-logam.html" class="card text-center text-decoration-none text-reset">
                         <div class="card-body">
                             <i class="fas fa-tools fa-3x text-danger"></i>
                             <h5 class="card-title mt-3">Besi & Logam</h5>
@@ -188,10 +188,10 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <a href="jenis-sampah/organik.php" class="card text-center text-decoration-none">
+                    <a href="khusus.html" class="card text-center text-decoration-none">
                         <div class="card-body">
                             <i class="fas fa-leaf fa-3x text-brown"></i>
-                            <h5 class="card-title mt-3">Organik</h5>
+                            <h5 class="card-title mt-3">Khusus</h5>
                         </div>
                     </a>
                 </div>

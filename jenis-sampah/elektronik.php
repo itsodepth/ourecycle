@@ -20,7 +20,7 @@
                 <!-- Card 1 -->
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="../assets/images/elektronik/tv.png" class="card-img-top" alt="Televisi">
+                        <img src="../assets/images/plastik/kardusplastik.webp" class="card-img-top" alt="Televisi">
                         <div class="card-body">
                             <h5 class="card-title">Televisi</h5>
                         </div>
@@ -29,7 +29,7 @@
                 <!-- Card 2 -->
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="../assets/images/elektronik/kulkas.jpeg" class="card-img-top" alt="Kulkas">
+                        <img src="../assets/images/plastik/botolplastik.jpg" class="card-img-top" alt="Kulkas">
                         <div class="card-body">
                             <h5 class="card-title">Kulkas</h5>
                         </div>
@@ -38,7 +38,7 @@
                 <!-- Card 3 -->
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="../assets/images/elektronik/komputer.webp" class="card-img-top" alt="Komputer">
+                        <img src="../assets/images/plastik/kantongplastik.jpg" class="card-img-top" alt="Komputer">
                         <div class="card-body">
                             <h5 class="card-title">Komputer</h5>
                         </div>
@@ -47,7 +47,7 @@
                 <!-- Card 4 -->
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="../assets/images/elektronik/ponsel.jpg" class="card-img-top" alt="Ponsel">
+                        <img src="../assets/images/plastik/kemasanplastik.webp" class="card-img-top" alt="Ponsel">
                         <div class="card-body">
                             <h5 class="card-title">Ponsel</h5>
                         </div>
@@ -56,7 +56,7 @@
                 <!-- Card 5 -->
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="../assets/images/elektronik/laptop.jpg" class="card-img-top" alt="Laptop">
+                        <img src="../assets/images/plastik/sedotan.jpg" class="card-img-top" alt="Laptop">
                         <div class="card-body">
                             <h5 class="card-title">Laptop</h5>
                         </div>
@@ -65,7 +65,7 @@
                 <!-- Card 6 -->
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="../assets/images/elektronik/printer.jpg" class="card-img-top" alt="Printer">
+                        <img src="../assets/images/plastik/wrap.webp" class="card-img-top" alt="Printer">
                         <div class="card-body">
                             <h5 class="card-title">Printer</h5>
                         </div>
@@ -74,7 +74,7 @@
                 <!-- Card 7 -->
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="../assets/images/elektronik/baterai.webp" class="card-img-top" alt="Baterai">
+                        <img src="../assets/images/plastik/gelasplastk.webp" class="card-img-top" alt="Baterai">
                         <div class="card-body">
                             <h5 class="card-title">Baterai</h5>
                         </div>
@@ -83,7 +83,7 @@
                 <!-- Card 8 -->
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="../assets/images/elektronik/mesincuci.png" class="card-img-top" alt="Mesin Cuci">
+                        <img src="../assets/images/plastik/gelasplastk.webp" class="card-img-top" alt="Mesin Cuci">
                         <div class="card-body">
                             <h5 class="card-title">Mesin Cuci</h5>
                         </div>
@@ -92,7 +92,7 @@
                 <!-- Card 9 -->
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="../assets/images/elektronik/dispenser.jpg" class="card-img-top" alt="Dispenser">
+                        <img src="../assets/images/plastik/gelasplastk.webp" class="card-img-top" alt="Dispenser">
                         <div class="card-body">
                             <h5 class="card-title">Dispenser</h5>
                         </div>
@@ -101,7 +101,7 @@
                 <!-- Card 10 -->
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="../assets/images/elektronik/ac.webp" class="card-img-top" alt="AC">
+                        <img src="../assets/images/plastik/gelasplastk.webp" class="card-img-top" alt="AC">
                         <div class="card-body">
                             <h5 class="card-title">AC</h5>
                         </div>

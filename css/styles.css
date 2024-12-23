@@ -85,3 +85,182 @@
     width: 80%; /* Atur lebar card sesuai kebutuhan */
     margin: auto; /* Pusatkan card */
 }
+ /* Styling Global */
+body {
+    font-family: "Quicksand", sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #33ac41; /* Hijau */
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Pop-up Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+/* Pop-up Login/ Register */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    width: 350px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+}
+
+#login-logo {
+    width: 150px; /* Sesuaikan lebar logo */
+    height: auto; /* Pertahankan rasio aspek logo */
+    display: block;
+    margin: 0 auto 20px auto; /* Pusatkan logo dan beri jarak di bawahnya */
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Styling untuk checkbox dan label */
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Jarak antara checkbox dan label */
+}
+
+.form-checkbox input[type="checkbox"] {
+    margin: 0; /* Menghapus margin default */
+}
+
+/* Form Styling */
+.form-element {
+    margin-bottom: 20px;
+}
+
+.form-element input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: white; /* Latar belakang putih */
+    color: #33ac41; /* Warna hijau untuk teks */
+    border: 2px solid #33ac41; /* Border hijau */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #33ac41; /* Latar belakang hijau ketika hover */
+    color: rgb(16, 15, 15); /* Teks putih saat hover */
+    border: 2px solid white; /* Border putih saat hover */
+}
+
+/* Styling Link */
+a {
+    color: #33ac41; /* Hijau */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.notification {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #33ac41;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1001;
+}
+
+.notification button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: white;
+    color: #33ac41;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notification button:hover {
+    background-color: #288a2f;
+    color: white;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #33ac41;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
