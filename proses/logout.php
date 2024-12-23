@@ -10,4 +10,3 @@ session_destroy();
 // Redirect ke halaman index
 header("Location: ../index.php");
 exit;
-?>
