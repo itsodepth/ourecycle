@@ -14,17 +14,22 @@
 
     <body>
         <?php include "../includes/header.php" ?>
-        <form action="process_order.php" method="post">
+        <form action="#" method="post">
             <div class="text-center mt-5 pt-5">
                 <h2 class="pb-2">Pilih Metode</h2>
-                <button type="submit" name="order_method" value="drop_off" class="btn btn-primary btn-lg mx-2">
+                <button type="submit" name="order_method" value="drop_off" class="btn btn-primary btn-lg mx-2"
+                    formaction="drop-off/form-drop-off.php">
                     Drop Off
                 </button>
-                <button type="submit" name="order_method" value="pick_up" class="btn btn-success btn-lg mx-2">
+                <button type="submit" name="order_method" value="pick_up" class="btn btn-success btn-lg mx-2"
+                    formaction="pick-up/form-pick-up.php">
                     Pick Up
                 </button>
             </div>
         </form>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../js/script.js"></script>
     </body>
 
 </html>
