@@ -50,8 +50,8 @@ $is_logged_in = isset($_SESSION['user']);
                                 'Home' => ($currentPage === 'index.php') ? '#home' : '../index.php#home',
                                 'Layanan' => ($currentPage === 'index.php') ? '#layanan' : '../index.php#layanan',
                                 'Jenis Sampah' => ($currentPage === 'index.php') ? '#jenisSampah' : '../index.php#jenisSampah',
-                                'Histori' => $is_logged_in ? 'histori.php' : 'login.php',
-                                'Order' => $is_logged_in ? 'order-page/pilih.php' : 'login.php',
+                                'Histori' => $is_logged_in ? 'histori.php' : 'javascript:showLoginPopup();',
+                                'Order' => $is_logged_in ? 'order-page/pilih.php' : 'javascript:showLoginPopup();',
                             ];
 
                             // Generate navigasi
