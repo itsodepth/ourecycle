@@ -13,7 +13,6 @@
     </head>
 
     <body>
-        <?php include "../includes/header.php" ?>
         <form action="#" method="post">
             <div class="text-center mt-5 pt-5">
                 <h2 class="pb-2">Pilih Metode</h2>
