@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Upload foto sampah
     $fotoPaths = [];
     if (!empty($_FILES['fotoSampah']['name'][0])) {
-        $uploadDir = "uploads/";
+        $uploadDir = "../uploads/";
         foreach ($_FILES['fotoSampah']['tmp_name'] as $key => $tmpName) {
             $fileName = basename($_FILES['fotoSampah']['name'][$key]);
             $targetFilePath = $uploadDir . $fileName;
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("ssssssssssssss", $nama, $jenisSampah, $subjenisSampah, $beratSampah, $nomorTelepon, $alamat, $latitude, $longitude, $patokanRumah, $tanggalPengambilan, $jamMulai, $jamAkhir, $pesan, $fotoSampah);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Data berhasil disimpan!'); window.location.href = 'histori.php';</script>";
+        echo "<script>alert('Data berhasil disimpan!'); window.location.href = '../histori.php';</script>";
     } else {
         echo "<script>alert('Terjadi kesalahan saat menyimpan data.'); window.history.back();</script>";
     }

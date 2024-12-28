@@ -24,45 +24,32 @@ $is_logged_in = isset($_SESSION['user']);
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-nav-apple py-3 fixed-top">
                 <div class="container-fluid">
-                    <?php
-                function getBrandLink($currentPage)
-                {
-                    return ($currentPage === 'index.php') ? '#' : '../index.php';
-                }
-
-                // Contoh penggunaan
-                $currentPage = basename($_SERVER['PHP_SELF']); // Mendapatkan nama file aktif
-                $brandLink = getBrandLink($currentPage);
-                ?>
-                    <a class="navbar-brand ps-2 ps-lg-5 fw-bold fs-4" href="<?php echo $brandLink; ?>">OuRecycle</a>
+                    <a class="navbar-brand ps-2 ps-lg-5 fw-bold fs-4" href="../index.php">OuRecycle</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto fw-semibold">
-                            <?php
-                            // Dapatkan nama file aktif
-                            $currentPage = basename($_SERVER['PHP_SELF']);
-
-                            // Tentukan navigasi
-                            $navigation = [
-                                'Home' => ($currentPage === 'index.php') ? '#home' : '../index.php#home',
-                                'Layanan' => ($currentPage === 'index.php') ? '#layanan' : '../index.php#layanan',
-                                'Jenis Sampah' => ($currentPage === 'index.php') ? '#jenisSampah' : '../index.php#jenisSampah',
-                                'Histori' => $is_logged_in ? 'histori.php' : 'javascript:showLoginPopup();',
-                                'Order' => $is_logged_in ? 'order-page/pilih.php' : 'javascript:showLoginPopup();',
-                            ];
-
-                            // Generate navigasi
-                            foreach ($navigation as $label => $link) {
-                                $activeClass = ($currentPage === basename($link)) ? 'active' : '';
-                                $onclick = ($label === 'Order' && $currentPage === 'pilih.php') ? 'event.preventDefault();' : '';
-                                echo "<li class='nav-item'>
-                                        <a class='nav-link $activeClass' href='$link' onclick='closeNavbar(); $onclick'>$label</a>
-                                    </li>";
-                            }
-                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#home" onclick="closeNavbar()">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#layanan" onclick="closeNavbar()">Layanan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#jenisSampah" onclick="closeNavbar()">Jenis Sampah</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="<?= $is_logged_in ? 'order-page/histori.php' : 'javascript:showLoginPopup();'; ?>"
+                                    onclick="closeNavbar()">Histori</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="<?= $is_logged_in ? 'order-page/pilih.php' : 'javascript:showLoginPopup();'; ?>"
+                                    onclick="closeNavbar()">Order</a>
+                            </li>
                             <li class="nav-item ms-0 mx-lg-3 dropdown">
                                 <?php if ($is_logged_in): ?>
                                 <a href="#" class="nav-link nav-icon dropdown-toggle no-caret" id="userDropdown"
@@ -70,7 +57,7 @@ $is_logged_in = isset($_SESSION['user']);
                                     <i class="fas fa-user-circle custom-icon"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li><a class="dropdown-item" href="profile/edit-profile.php">Edit Profile</a></li>
+                                    <li><a class="dropdown-item" href="profile/info.php">Profil</a></li>
                                     <li><a class="dropdown-item" href="proses/logout.php">Logout</a></li>
                                 </ul>
                                 <?php else: ?>

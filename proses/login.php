@@ -18,10 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($password, $user['password'])) {
             // Login berhasil, simpan informasi user di session
             $_SESSION['user'] = [
-                'id' => $user['id'],
+                'id_user' => $user['id_user'],
                 'username' => $user['username'],
+                'role' => $user['role'], // Tambahkan role ke session
             ];
-            header("Location: ../index.php"); // Redirect ke halaman utama setelah login
+
+            // Periksa apakah username diawali dengan 'emp_'
+            if (strpos($username, 'emp_') === 0) {
+                // Jika username diawali dengan 'emp_', redirect ke admin-dashboard.php
+                header("Location: ../admin/admin_dashboard.php");
+                exit;
+            }
+
+            // Redirect ke halaman utama untuk pengguna biasa
+            $_SESSION['success'] = "Selamat datang, " . ($user['role'] === 'karyawan' ? "Karyawan" : "Pengguna") . "!";
+            header("Location: ../index.php");
             exit;
         } else {
             // Password salah, simpan pesan error dalam session
@@ -40,4 +51,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: ../index.php");
     exit;
 }
-?>

@@ -51,9 +51,53 @@ function closeNavbar() {
 }
 
 function showSubjenisContainer() {
-    var jenisSampah = document.getElementById("jenisSampah").value;
-    var subjenisContainer = document.getElementById("subjenisContainer");
-    subjenisContainer.style.display = jenisSampah ? "block" : "none";
+    const jenisSampah = document.getElementById("jenisSampah").value;
+    const subjenisContainer = document.getElementById("subjenisContainer");
+    const subjenisOptions = document.getElementById("subjenisOptions");
+
+    // Clear previous options
+    subjenisOptions.innerHTML = "";
+
+    // Show subjenis container
+    if (jenisSampah) {
+        subjenisContainer.style.display = "block";
+
+        let subjenis = [];
+
+        switch (jenisSampah) {
+            case "kertas":
+                subjenis = ["Kertas Koran", "Kertas Karton", "Kertas Buku", "Kertas Pembungkus", "Kertas Nota", "Kertas Fotokopi"];
+                break;
+            case "plastik":
+                subjenis = ["Kardus Plastik", "Botol Plastik", "Kantong Plastik", "Kemasan Plastik", "Sedotan Plastik", "Plastik Wrap", "Gelas Plastik"];
+                break;
+            case "elektronik":
+                subjenis = ["Telepon", "Kulkas", "Komputer", "Ponsel", "Laptop", "Printer", "Baterai", "Mesin Cuci"];
+                break;
+            case "botol_kaca":
+                subjenis = ["Botol Kecap", "Botol Saos", "Botol Sirup DHT", "Botol Miras", "Botol Soda"];
+                break;
+            case "besi_logam":
+                subjenis = ["Aki", "Timah", "Besi Tipis", "Besi Tebal", "Kuningan", "Tembaga Biasa", "Tembaga Super", "Kepala Aki"];
+                break;
+            case "organik":
+                subjenis = ["Minyak Jelantah"];
+                break;
+        }
+
+        // Create checkboxes for subjenis
+        subjenis.forEach((item, index) => {
+            const div = document.createElement("div");
+            div.className = "form-check";
+            div.innerHTML = `
+                <input class="form-check-input" type="checkbox" id="subjenis${index}" name="subjenisSampah[]" value="${item}">
+                <label class="form-check-label" for="subjenis${index}">${item}</label>
+            `;
+            subjenisOptions.appendChild(div);
+        });
+    } else {
+        subjenisContainer.style.display = "none"; // Hide if no jenis selected
+    }
 }
 
 document.getElementById("beratSampah").addEventListener("change", function () {

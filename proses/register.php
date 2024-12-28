@@ -18,6 +18,9 @@ if (isset($_POST['register'])) {
         // Hash the password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+        // Determine role based on username prefix
+        $role = (strpos($username, 'emp_') === 0) ? 'karyawan' : 'pengguna';
+
         // Check if the username is already taken
         $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->bind_param("s", $username);
@@ -27,9 +30,9 @@ if (isset($_POST['register'])) {
         if ($result->num_rows > 0) {
             echo "Username already taken!";
         } else {
-            // Insert user into the database
-            $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-            $stmt->bind_param("ss", $username, $hashed_password);
+            // Insert user into the database with role
+            $stmt = $conn->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $username, $hashed_password, $role);
             if ($stmt->execute()) {
                 // Redirect to main page with success message
                 header("Location: ../index.php?registration=success");
