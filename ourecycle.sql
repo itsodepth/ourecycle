@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 27, 2024 at 02:13 PM
--- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- Host: 127.0.0.1
+-- Generation Time: Dec 29, 2024 at 12:46 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,34 +28,35 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tb_order` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `nama` varchar(30) DEFAULT NULL,
   `jenis_sampah` varchar(50) DEFAULT NULL,
-  `subjenis_sampah` text,
+  `subjenis_sampah` text DEFAULT NULL,
   `berat_sampah` decimal(5,2) DEFAULT NULL,
   `nomor_telepon` varchar(20) DEFAULT NULL,
-  `alamat` text,
+  `foto_sampah` longblob DEFAULT NULL,
+  `foto_type` varchar(50) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
   `patokan_rumah` varchar(100) DEFAULT NULL,
   `latitude` decimal(10,8) DEFAULT NULL,
   `longitude` decimal(11,8) DEFAULT NULL,
   `tanggal_pengambilan` date DEFAULT NULL,
   `jam_mulai` time DEFAULT NULL,
   `jam_akhir` time DEFAULT NULL,
-  `pesan` text,
-  `status` varchar(50) DEFAULT 'Menunggu Konfirmasi',
-  `foto_sampah` longblob,
-  `foto_type` varchar(50) DEFAULT NULL,
-  `nama` varchar(30) DEFAULT NULL
+  `pesan` text DEFAULT NULL,
+  `status` varchar(50) DEFAULT 'Menunggu Konfirmasi'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `tb_order`
 --
 
-INSERT INTO `tb_order` (`id`, `jenis_sampah`, `subjenis_sampah`, `berat_sampah`, `nomor_telepon`, `alamat`, `patokan_rumah`, `latitude`, `longitude`, `tanggal_pengambilan`, `jam_mulai`, `jam_akhir`, `pesan`, `status`, `foto_sampah`, `foto_type`, `nama`) VALUES
-(25, 'organik', 'plastik', 77.00, '08122931313', 'Jalan Monginsidi, Kestalan, Surakarta, Central Java, Java, 57137, Indonesia', 'Gang Senggol', -7.55820000, 110.82610000, '2024-12-26', '16:22:00', '16:22:00', 'l', 'Selesai', 0x75706c6f6164732f53637265656e73686f7420323032342d31312d3330203131303435352e706e67, NULL, 'Satriyo'),
-(27, 'organik', 'logam', 11.00, '11', 'Jalan Monginsidi, Kestalan, Surakarta, Central Java, Java, 57137, Indonesia', '111', -7.55820000, 110.82610000, '2024-12-26', '17:03:00', '17:03:00', 'll', 'Menunggu Konfirmasi', 0x75706c6f6164732f6f6365616e2073757266696e67202831292e706e67, NULL, 'Budiono'),
-(28, 'organik', 'plastik', 12.00, '11', 'Jalan Monginsidi, Kestalan, Surakarta, Central Java, Java, 57137, Indonesia', 'Gerbang Belakang', -7.55820000, 110.82610000, '2024-12-26', '17:24:00', '17:25:00', '123', 'Menunggu Konfirmasi', 0x75706c6f6164732f53637265656e73686f7420323032342d31322d3031203231333733302e706e67, NULL, 'Kunyit'),
-(29, 'organik', 'plastik', 12.00, '081326691584', 'Monterico, Inopacan, 5th District, Leyte, Eastern Visayas, 6522, Philippines', 'Gerbang Belakang', 10.57422208, 124.91015623, '2024-12-27', '19:59:00', '20:59:00', 'Ceptan woy atmin', 'Diproses', 0x75706c6f6164732f53637265656e73686f7420323032342d31322d3031203231333733302e706e67, NULL, 'Devanus');
+INSERT INTO `tb_order` (`id`, `id_user`, `nama`, `jenis_sampah`, `subjenis_sampah`, `berat_sampah`, `nomor_telepon`, `foto_sampah`, `foto_type`, `alamat`, `patokan_rumah`, `latitude`, `longitude`, `tanggal_pengambilan`, `jam_mulai`, `jam_akhir`, `pesan`, `status`) VALUES
+(32, 0, 'Moona', 'organik', 'plastik, kertas', 3.00, '0896757676454', 0x2e2e2f75706c6f6164732f496e7374616772616d20706f7374202d20372e706e672c202e2e2f75706c6f6164732f4d6f6d656e20416e696d652e706e67, NULL, 'Jalan Monginsidi, Kestalan, Surakarta, Central Java, Java, 57137, Indonesia', 'kok bisa deket situ', -7.55820000, 110.82610000, '2024-12-29', '05:05:00', '06:05:00', 'cepetan', 'Menunggu Konfirmasi'),
+(33, 0, 'Moona', 'organik', 'plastik, kertas', 3.00, '0896757676454', 0x2e2e2f75706c6f6164732f496e7374616772616d20706f7374202d20372e706e672c202e2e2f75706c6f6164732f4d6f6d656e20416e696d652e706e67, NULL, 'Jalan Monginsidi, Kestalan, Surakarta, Central Java, Java, 57137, Indonesia', 'kok bisa deket situ', -7.55820000, 110.82610000, '2024-12-29', '05:05:00', '06:05:00', 'cepetan', 'Menunggu Konfirmasi'),
+(34, 0, 'Luffy', 'anorganik', 'plastik, logam', 6.00, '089675677821', 0x2e2e2f75706c6f6164732f31366269742d73656e736174696f6e2d776174617368692d746f2d6d696e6e612d67612d7473756b757474612d626973686f756a6f2d67616d652d312e706e672c202e2e2f75706c6f6164732f35346462346331322d323133332d343266392d383030392d6132306133626232316662332e6a7067, NULL, 'Krajan, Bancak, Semarang, Jawa Tengah, Jawa, Indonesia', 'rumah warna merah darah', -7.24479001, 110.59867859, '2024-12-08', '05:27:00', '05:28:00', 'anime', 'Menunggu Konfirmasi'),
+(35, 0, 'Airani Iofifteen', 'plastik', 'Botol Plastik, Sedotan Plastik, Plastik Wrap', 9.00, '089675677821', 0x2e2e2f75706c6f6164732f616b7579616b75207265696a6f752e6a7065672c202e2e2f75706c6f6164732f616e6b6f6b756865697368695f50522e6a706567, NULL, '手代森トンネル, 門, Morioka, Iwate Prefecture, 020-0831, Jepang', 'Rumah deket toko sembako Iwata-san', 39.66597088, 141.19628906, '2024-12-25', '09:56:00', '10:56:00', 'cepetan ya banh', 'Menunggu Konfirmasi');
 
 -- --------------------------------------------------------
 
@@ -64,7 +65,7 @@ INSERT INTO `tb_order` (`id`, `jenis_sampah`, `subjenis_sampah`, `berat_sampah`,
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
+  `id_user` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('karyawan','pengguna') NOT NULL
@@ -74,9 +75,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
+INSERT INTO `users` (`id_user`, `username`, `password`, `role`) VALUES
 (4, 'qwe', '$2y$10$Ec2O/FaonCUBaKZQb.6fyO6zMZ.IS6aYDBdqAcCQio9BjqDOztZ1i', 'pengguna'),
-(7, 'emp_alif', '$2y$10$sVZavYE.mMt5AWBsbAKnp..i8kPzbrIVi9VfmYIfj.jpMP8/.d8Xi', 'karyawan');
+(7, 'emp_alif', '$2y$10$sVZavYE.mMt5AWBsbAKnp..i8kPzbrIVi9VfmYIfj.jpMP8/.d8Xi', 'karyawan'),
+(8, 'devano', '$2y$10$eyFW2x3oQaJ473EtETs7d.dfScaJJvgMLvQPcueTUAXjs4FXwRQhK', 'karyawan'),
+(9, 'kirito', '$2y$10$PbmabWtiUm7QOFAWmcAskeXP5n1QrR5WPboWu6hc6SdYGtNhfC/wu', 'pengguna');
 
 --
 -- Indexes for dumped tables
@@ -86,13 +89,15 @@ INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
 -- Indexes for table `tb_order`
 --
 ALTER TABLE `tb_order`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_user_2` (`id_user`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -102,13 +107,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `tb_order`
 --
 ALTER TABLE `tb_order`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
