@@ -13,8 +13,11 @@
     </head>
 
     <body>
+        <a href="../index.php" class="btn btn-apple ms-4 ms-sm-5" style="margin-top: 3rem;">
+            <i class="bi bi-arrow-left"></i> Back
+        </a>
         <form action="#" method="post">
-            <div class="text-center mt-5 pt-5">
+            <div class="text-center mt-5">
                 <h2 class="pb-2">Pilih Metode</h2>
                 <button type="submit" name="order_method" value="drop_off" class="btn btn-primary btn-lg mx-2"
                     formaction="drop-off/form-drop-off.php">

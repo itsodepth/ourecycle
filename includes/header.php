@@ -70,95 +70,98 @@ $is_logged_in = isset($_SESSION['user']);
             </nav>
         </header>
 
-        <!-- Popup Overlay -->
-        <div class="popup-overlay" id="popup-overlay"></div>
+        <div class="fungsi-popup">
+            <!-- Popup Overlay -->
+            <div class="popup-overlay" id="popup-overlay"></div>
 
-        <!-- Pop-up Login -->
-        <div class="popup" id="popup-login">
-            <div class="close-btn" id="close-popup">&times;</div>
-            <div class="form">
-                <img src="assets/images/logo.png" alt="Logo" id="login-logo">
-                <form method="POST" action="proses/login.php">
-                    <div class="form-element">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Masukkan Username" required>
-                    </div>
-                    <div class="form-element">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Masukkan Password" required>
-                    </div>
+            <!-- Pop-up Login -->
+            <div class="popup" id="popup-login">
+                <div class="close-btn" id="close-popup">&times;</div>
+                <div class="form">
+                    <img src="assets/images/logo.png" alt="Logo" id="login-logo">
+                    <form method="POST" action="proses/login.php">
+                        <div class="form-element">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" placeholder="Masukkan Username" required>
+                        </div>
+                        <div class="form-element">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Masukkan Password"
+                                required>
+                        </div>
 
-                    <!-- Menampilkan pesan error jika ada -->
-                    <?php if (isset($_SESSION['error'])): ?>
-                    <div class="form-element">
-                        <p class="text-danger"><?= $_SESSION['error'] ?></p> <!-- Menampilkan pesan error -->
-                    </div>
-                    <?php unset($_SESSION['error']); ?>
-                    <!-- Hapus pesan setelah ditampilkan -->
-                    <?php endif; ?>
+                        <!-- Menampilkan pesan error jika ada -->
+                        <?php if (isset($_SESSION['error'])): ?>
+                        <div class="form-element">
+                            <p class="text-danger"><?= $_SESSION['error'] ?></p> <!-- Menampilkan pesan error -->
+                        </div>
+                        <?php unset($_SESSION['error']); ?>
+                        <!-- Hapus pesan setelah ditampilkan -->
+                        <?php endif; ?>
 
-                    <div class="form-element">
-                        <button type="submit" class="btn btn-apple px-3">Sign in</button>
-                    </div>
-                    <div class="form-element">
-                        <a href="#">Lupa Password?</a>
-                    </div>
-                    <div class="form-element">
-                        <p>Belum punya akun? <a href="#" id="show-register">Daftar</a></p>
-                    </div>
-                </form>
+                        <div class="form-element">
+                            <button type="submit" class="btn btn-apple px-3">Sign in</button>
+                        </div>
+                        <div class="form-element">
+                            <a href="#">Lupa Password?</a>
+                        </div>
+                        <div class="form-element">
+                            <p>Belum punya akun? <a href="#" id="show-register">Daftar</a></p>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
 
-        <!-- Popup Form Register -->
-        <div class="popup" id="popup-register">
-            <div class="close-btn" id="close-register-popup">&times;</div>
-            <div class="form">
-                <img src="assets/images/logo.png" alt="Logo" id="login-logo">
-                <form method="post" action="proses/register.php">
-                    <div class="form-element">
-                        <label for="username-register">Username</label>
-                        <input type="text" id="username-register" name="username-register"
-                            placeholder="Masukkan Username" required>
-                    </div>
-                    <div class="form-element">
-                        <label for="password-register">Password</label>
-                        <input type="password" id="password-register" name="password-register"
-                            placeholder="Masukkan Password" required>
-                    </div>
-                    <div class="form-element">
-                        <label for="confirm-password-register">Confirm Password</label>
-                        <input type="password" id="confirm-password-register" name="confirm-password-register"
-                            placeholder="Confirm Password" required>
-                    </div>
-                    <div class="form-element">
-                        <button type="submit" name="register" class="btn btn-apple px-3">Register</button>
-                    </div>
-                </form>
+            <!-- Popup Form Register -->
+            <div class="popup" id="popup-register">
+                <div class="close-btn" id="close-register-popup">&times;</div>
+                <div class="form">
+                    <img src="assets/images/logo.png" alt="Logo" id="login-logo">
+                    <form method="post" action="proses/register.php">
+                        <div class="form-element">
+                            <label for="username-register">Username</label>
+                            <input type="text" id="username-register" name="username-register"
+                                placeholder="Masukkan Username" required>
+                        </div>
+                        <div class="form-element">
+                            <label for="password-register">Password</label>
+                            <input type="password" id="password-register" name="password-register"
+                                placeholder="Masukkan Password" required>
+                        </div>
+                        <div class="form-element">
+                            <label for="confirm-password-register">Confirm Password</label>
+                            <input type="password" id="confirm-password-register" name="confirm-password-register"
+                                placeholder="Confirm Password" required>
+                        </div>
+                        <div class="form-element">
+                            <button type="submit" name="register" class="btn btn-apple px-3">Register</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
 
-        <!-- Modal Ubah Password -->
-        <div id="modal-ubah-password" class="modal">
-            <div class="modal-content">
-                <span class="close" id="close-ubah-password">&times;</span>
-                <h2>Ubah Password</h2>
-                <form method="post" action="proses/ubah_password.php">
-                    <input type="password" name="password-lama" placeholder="Password Lama" required>
-                    <input type="password" name="password-baru" placeholder="Password Baru" required>
-                    <button type="submit">Ubah</button>
-                </form>
+            <!-- Modal Ubah Password -->
+            <div id="modal-ubah-password" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="close-ubah-password">&times;</span>
+                    <h2>Ubah Password</h2>
+                    <form method="post" action="proses/ubah_password.php">
+                        <input type="password" name="password-lama" placeholder="Password Lama" required>
+                        <input type="password" name="password-baru" placeholder="Password Baru" required>
+                        <button type="submit">Ubah</button>
+                    </form>
+                </div>
             </div>
-        </div>
 
-        <!-- Modal Ganti Foto -->
-        <div id="modal-ganti-foto" class="modal">
-            <div class="modal-content">
-                <span class="close" id="close-ganti-foto">&times;</span>
-                <h2>Ganti Foto</h2>
-                <form method="post" action="proses/ganti_foto.php" enctype="multipart/form-data">
-                    <input type="file" name="foto" required>
-                    <button type="submit">Ganti</button>
-                </form>
+            <!-- Modal Ganti Foto -->
+            <div id="modal-ganti-foto" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="close-ganti-foto">&times;</span>
+                    <h2>Ganti Foto</h2>
+                    <form method="post" action="proses/ganti_foto.php" enctype="multipart/form-data">
+                        <input type="file" name="foto" required>
+                        <button type="submit">Ganti</button>
+                    </form>
+                </div>
             </div>
         </div>

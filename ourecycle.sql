@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2024 at 12:46 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Waktu pembuatan: 29 Des 2024 pada 08.14
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_order`
+-- Struktur dari tabel `tb_order`
 --
 
 CREATE TABLE `tb_order` (
@@ -49,7 +49,7 @@ CREATE TABLE `tb_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tb_order`
+-- Dumping data untuk tabel `tb_order`
 --
 
 INSERT INTO `tb_order` (`id`, `id_user`, `nama`, `jenis_sampah`, `subjenis_sampah`, `berat_sampah`, `nomor_telepon`, `foto_sampah`, `foto_type`, `alamat`, `patokan_rumah`, `latitude`, `longitude`, `tanggal_pengambilan`, `jam_mulai`, `jam_akhir`, `pesan`, `status`) VALUES
@@ -61,32 +61,34 @@ INSERT INTO `tb_order` (`id`, `id_user`, `nama`, `jenis_sampah`, `subjenis_sampa
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('karyawan','pengguna') NOT NULL
+  `role` enum('Karyawan','Pengguna') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `role`) VALUES
-(4, 'qwe', '$2y$10$Ec2O/FaonCUBaKZQb.6fyO6zMZ.IS6aYDBdqAcCQio9BjqDOztZ1i', 'pengguna'),
-(7, 'emp_alif', '$2y$10$sVZavYE.mMt5AWBsbAKnp..i8kPzbrIVi9VfmYIfj.jpMP8/.d8Xi', 'karyawan'),
-(8, 'devano', '$2y$10$eyFW2x3oQaJ473EtETs7d.dfScaJJvgMLvQPcueTUAXjs4FXwRQhK', 'karyawan'),
-(9, 'kirito', '$2y$10$PbmabWtiUm7QOFAWmcAskeXP5n1QrR5WPboWu6hc6SdYGtNhfC/wu', 'pengguna');
+(4, 'qwe', '$2y$10$Ec2O/FaonCUBaKZQb.6fyO6zMZ.IS6aYDBdqAcCQio9BjqDOztZ1i', 'Pengguna'),
+(7, 'emp_alif', '$2y$10$sVZavYE.mMt5AWBsbAKnp..i8kPzbrIVi9VfmYIfj.jpMP8/.d8Xi', 'Karyawan'),
+(8, 'devano', '$2y$10$eyFW2x3oQaJ473EtETs7d.dfScaJJvgMLvQPcueTUAXjs4FXwRQhK', 'Karyawan'),
+(9, 'yuki', '$2y$10$zW/UyXtyvaY.T2LBgeV4quD.XCrtx9SzMhHQzxJMBA/6Xw9tWrmXi', 'Pengguna'),
+(10, 'benimaru', '$2y$10$EGF1NZvRVU6kPAfq26.7oeBOHsMaC.vyYlbSM6iUc8k7e2Ec.prZS', 'Pengguna'),
+(11, 'reymond', '$2y$10$2nNmqJ7VGEzJuwc4YB4BfORR7v1HVSw9ALXkFXOls0En5Bei5F4ZG', 'Pengguna');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tb_order`
+-- Indeks untuk tabel `tb_order`
 --
 ALTER TABLE `tb_order`
   ADD PRIMARY KEY (`id`),
@@ -94,26 +96,26 @@ ALTER TABLE `tb_order`
   ADD KEY `id_user_2` (`id_user`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_order`
+-- AUTO_INCREMENT untuk tabel `tb_order`
 --
 ALTER TABLE `tb_order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
