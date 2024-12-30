@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Des 2024 pada 10.16
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Generation Time: Dec 30, 2024 at 05:39 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_jenis_sampah`
+-- Table structure for table `histori`
+--
+
+CREATE TABLE `histori` (
+  `id_histori` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_pickup` int(11) DEFAULT NULL,
+  `id_dropoff` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `histori`
+--
+
+INSERT INTO `histori` (`id_histori`, `id_user`, `id_pickup`, `id_dropoff`, `created_at`) VALUES
+(1, 13, 7, NULL, '2024-12-30 16:21:33'),
+(2, 13, 8, NULL, '2024-12-30 16:22:05'),
+(3, 13, NULL, 4, '2024-12-30 16:22:51'),
+(4, 12, 9, NULL, '2024-12-30 16:24:13'),
+(5, 12, NULL, 5, '2024-12-30 16:25:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_jenis_sampah`
 --
 
 CREATE TABLE `tb_jenis_sampah` (
@@ -33,7 +58,7 @@ CREATE TABLE `tb_jenis_sampah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_jenis_sampah`
+-- Dumping data for table `tb_jenis_sampah`
 --
 
 INSERT INTO `tb_jenis_sampah` (`id_jenis`, `jenis_sampah`) VALUES
@@ -47,7 +72,7 @@ INSERT INTO `tb_jenis_sampah` (`id_jenis`, `jenis_sampah`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_order`
+-- Table structure for table `tb_order`
 --
 
 CREATE TABLE `tb_order` (
@@ -72,7 +97,7 @@ CREATE TABLE `tb_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `tb_order`
+-- Dumping data for table `tb_order`
 --
 
 INSERT INTO `tb_order` (`id`, `id_user`, `nama`, `jenis_sampah`, `subjenis_sampah`, `berat_sampah`, `nomor_telepon`, `foto_sampah`, `foto_type`, `alamat`, `patokan_rumah`, `latitude`, `longitude`, `tanggal_pengambilan`, `jam_mulai`, `jam_akhir`, `pesan`, `status`) VALUES
@@ -84,12 +109,13 @@ INSERT INTO `tb_order` (`id`, `id_user`, `nama`, `jenis_sampah`, `subjenis_sampa
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_order_dropoff`
+-- Table structure for table `tb_order_dropoff`
 --
 
 CREATE TABLE `tb_order_dropoff` (
-  `id` int(11) NOT NULL,
+  `id_dropoff` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
   `id_jenis` int(11) NOT NULL,
   `id_subjenis` int(11) NOT NULL,
   `berat_sampah` decimal(5,2) DEFAULT NULL,
@@ -98,21 +124,44 @@ CREATE TABLE `tb_order_dropoff` (
   `foto_type` varchar(50) DEFAULT NULL,
   `kota` varchar(50) DEFAULT NULL,
   `cabang` varchar(100) DEFAULT NULL,
-  `tanggal_pengambilan` date DEFAULT NULL,
+  `tanggal_pengantaran` date DEFAULT NULL,
   `jam_mulai` time DEFAULT NULL,
   `jam_akhir` time DEFAULT NULL,
   `pesan` text DEFAULT NULL,
   `status` varchar(50) DEFAULT 'Menunggu Konfirmasi'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tb_order_dropoff`
+--
+
+INSERT INTO `tb_order_dropoff` (`id_dropoff`, `id_user`, `nama`, `id_jenis`, `id_subjenis`, `berat_sampah`, `nomor_telepon`, `foto_sampah`, `foto_type`, `kota`, `cabang`, `tanggal_pengantaran`, `jam_mulai`, `jam_akhir`, `pesan`, `status`) VALUES
+(1, 12, 'Devano', 2, 8, 12.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326333616636613564352e6a706567, 'jpeg', 'bandung', 'Cabang OuRecycle Kecamatan Y', '2024-12-30', '23:00:00', '16:00:00', 'AAKKHH', 'Menunggu Konfirmasi'),
+(2, 12, 'Devano', 1, 1, 12.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326335353562623837362e6a706567, 'jpeg', 'bandung', 'Cabang OuRecycle Kecamatan Y', '2024-12-30', '15:07:00', '16:07:00', 'AAAAA', 'Menunggu Konfirmasi'),
+(3, 12, 'Kazuto', 1, 2, 4.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326336326266323636372e6a706567, 'jpeg', 'jakarta', 'Cabang OuRecycle Kecamatan B', '2024-12-30', '23:11:00', '16:11:00', 'WLEOWLEOWLEO', 'Menunggu Konfirmasi'),
+(4, 13, 'Airani Iofifteen', 1, 2, 4.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326338646237376630352e6a706567, 'jpeg', 'surakarta', 'Cabang OuRecycle Kecamatan 2', '2024-12-30', '23:22:00', '16:22:00', 'ini dropoff ges', 'Menunggu Konfirmasi'),
+(5, 12, 'Moona', 5, 28, 3.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326339356464636661342e6a706567, 'jpeg', 'bandung', 'Cabang OuRecycle Kecamatan Z', '2024-12-30', '23:24:00', '15:24:00', 'bisa euy, mantap jiwa', 'Menunggu Konfirmasi');
+
+--
+-- Triggers `tb_order_dropoff`
+--
+DELIMITER $$
+CREATE TRIGGER `after_insert_tb_order_dropoff` AFTER INSERT ON `tb_order_dropoff` FOR EACH ROW BEGIN
+    -- Insert histori baru untuk setiap dropoff
+    INSERT INTO histori (id_user, id_dropoff)
+    VALUES (NEW.id_user, NEW.id_dropoff);
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_order_pickup`
+-- Table structure for table `tb_order_pickup`
 --
 
 CREATE TABLE `tb_order_pickup` (
-  `id` int(11) NOT NULL,
+  `id_pickup` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `id_jenis` int(11) NOT NULL,
@@ -133,16 +182,36 @@ CREATE TABLE `tb_order_pickup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_order_pickup`
+-- Dumping data for table `tb_order_pickup`
 --
 
-INSERT INTO `tb_order_pickup` (`id`, `id_user`, `nama`, `id_jenis`, `id_subjenis`, `berat_sampah`, `nomor_telepon`, `foto_sampah`, `foto_type`, `alamat`, `patokan_rumah`, `latitude`, `longitude`, `tanggal_pengambilan`, `jam_mulai`, `jam_akhir`, `pesan`, `status`) VALUES
-(1, 12, 'Jimbe', 3, 18, 2.00, '089675677821', 0x2e2e2f75706c6f6164732f363737313064356235356165372e6a7067, 'jpg', 'Jalan Monginsidi, Kestalan, Surakarta, Jawa Tengah, Jawa, 57137, Indonesia', 'Rumah deket toko sembako Iwata-san', -7.55820000, 110.82610000, '2024-12-19', '15:50:00', '15:50:00', 'anime', 'Menunggu Konfirmasi');
+INSERT INTO `tb_order_pickup` (`id_pickup`, `id_user`, `nama`, `id_jenis`, `id_subjenis`, `berat_sampah`, `nomor_telepon`, `foto_sampah`, `foto_type`, `alamat`, `patokan_rumah`, `latitude`, `longitude`, `tanggal_pengambilan`, `jam_mulai`, `jam_akhir`, `pesan`, `status`) VALUES
+(1, 12, 'Jimbe', 3, 18, 2.00, '089675677821', 0x2e2e2f75706c6f6164732f363737313064356235356165372e6a7067, 'jpg', 'Jalan Monginsidi, Kestalan, Surakarta, Jawa Tengah, Jawa, 57137, Indonesia', 'Rumah deket toko sembako Iwata-san', -7.55820000, 110.82610000, '2024-12-19', '15:50:00', '15:50:00', 'anime', 'Menunggu Konfirmasi'),
+(2, 12, 'Kazuto', 1, 3, 4.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326239316161663161622e6a706567, 'jpeg', 'Mu Si, Provinsi Nakhon Ratchasima, Thailand', 'Rumah gerbang merah', 14.55301329, 101.46972656, '2024-12-30', '22:15:00', '22:15:00', 'sdfsdfsdf', 'Menunggu Konfirmasi'),
+(3, 12, 'Kazuto', 2, 7, 4.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326266626233343534362e6a706567, 'jpeg', 'Mu Si, Provinsi Nakhon Ratchasima, Thailand', 'Rumah gerbang merah', -7.55820000, 110.82610000, '2024-12-16', '22:43:00', '22:43:00', 'eterte', 'Menunggu Konfirmasi'),
+(4, 12, 'Pandu', 3, 16, 3.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326336386638366432342e6a706567, 'jpeg', 'Al-Shabaka Subdistrict, Al-Najaf District, Kegubernuran Al-Najaf, Irak', 'Rumah gerbang merah', 30.50785027, 42.97851563, '2024-12-30', '23:12:00', '16:12:00', 'ini bisa loh, hehehe', 'Menunggu Konfirmasi'),
+(5, 13, 'Pandu', 1, 2, 3.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326336656238326335622e6a706567, 'jpeg', 'Jalan Monginsidi, Kestalan, Surakarta, Jawa Tengah, Jawa, 57137, Indonesia', 'Rumah gerbang merah', -7.55820000, 110.82610000, '2024-12-30', '23:14:00', '16:14:00', 'ayo bernyanyi', 'Menunggu Konfirmasi'),
+(6, 13, 'Airani Iofifteen', 1, 2, 2.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326337323864313031342e6a706567, 'jpeg', 'Jalan Monginsidi, Kestalan, Surakarta, Jawa Tengah, Jawa, 57137, Indonesia', 'Rumah deket toko sembako Iwata-san', -7.55820000, 110.82610000, '2024-12-30', '23:15:00', '14:15:00', 'HEHEHEHE', 'Menunggu Konfirmasi'),
+(7, 13, 'Airani Iofifteen', 1, 2, 2.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326338386462626634392e6a706567, 'jpeg', 'Jalan Monginsidi, Kestalan, Surakarta, Jawa Tengah, Jawa, 57137, Indonesia', 'Rumah deket toko sembako Iwata-san', -7.55820000, 110.82610000, '2024-12-30', '23:24:00', '23:25:00', 'KETIMPA GA', 'Menunggu Konfirmasi'),
+(8, 13, 'Airani Iofifteen', 3, 14, 10.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326338616465316164362e6a706567, 'jpeg', 'Jalan Monginsidi, Kestalan, Surakarta, Jawa Tengah, Jawa, 57137, Indonesia', 'Rumah deket toko sembako Iwata-san', -7.55820000, 110.82610000, '2024-12-30', '14:21:00', '17:21:00', 'harusnya sih ngga ya', 'Menunggu Konfirmasi'),
+(9, 12, 'Moona', 4, 23, 2.00, '089675677823', 0x2e2e2f75706c6f6164732f363737326339326463663435632e6a706567, 'jpeg', 'Jalan Monginsidi, Kestalan, Surakarta, Jawa Tengah, Jawa, 57137, Indonesia', 'Rumah deket toko sembako Iwata-san', -7.55820000, 110.82610000, '2024-12-30', '23:24:00', '16:24:00', 'coba user lain nih bos', 'Menunggu Konfirmasi');
+
+--
+-- Triggers `tb_order_pickup`
+--
+DELIMITER $$
+CREATE TRIGGER `after_insert_tb_order_pickup` AFTER INSERT ON `tb_order_pickup` FOR EACH ROW BEGIN
+    -- Insert histori baru untuk setiap pickup
+    INSERT INTO histori (id_user, id_pickup)
+    VALUES (NEW.id_user, NEW.id_pickup);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_subjenis_sampah`
+-- Table structure for table `tb_subjenis_sampah`
 --
 
 CREATE TABLE `tb_subjenis_sampah` (
@@ -152,7 +221,7 @@ CREATE TABLE `tb_subjenis_sampah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_subjenis_sampah`
+-- Dumping data for table `tb_subjenis_sampah`
 --
 
 INSERT INTO `tb_subjenis_sampah` (`id_subjenis`, `id_jenis`, `subjenis_sampah`) VALUES
@@ -195,7 +264,7 @@ INSERT INTO `tb_subjenis_sampah` (`id_subjenis`, `id_jenis`, `subjenis_sampah`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -206,24 +275,34 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `role`) VALUES
-(12, 'forza', '$2y$10$15D6x4SukFzHqwYry6Uhjea6o1KSCAKHHHmfbknCzdpPyurmhk0pW', 'Pengguna');
+(12, 'forza', '$2y$10$15D6x4SukFzHqwYry6Uhjea6o1KSCAKHHHmfbknCzdpPyurmhk0pW', 'Pengguna'),
+(13, 'ayunda', '$2y$10$Ox9GaEQ11Z/zJOsaQKO62OudLzROBio9lUkku5OwSxHjYHN6oKJOu', 'Pengguna');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `tb_jenis_sampah`
+-- Indexes for table `histori`
+--
+ALTER TABLE `histori`
+  ADD PRIMARY KEY (`id_histori`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_pickup` (`id_pickup`),
+  ADD KEY `id_dropoff` (`id_dropoff`);
+
+--
+-- Indexes for table `tb_jenis_sampah`
 --
 ALTER TABLE `tb_jenis_sampah`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indeks untuk tabel `tb_order`
+-- Indexes for table `tb_order`
 --
 ALTER TABLE `tb_order`
   ADD PRIMARY KEY (`id`),
@@ -231,82 +310,96 @@ ALTER TABLE `tb_order`
   ADD KEY `id_user_2` (`id_user`);
 
 --
--- Indeks untuk tabel `tb_order_dropoff`
+-- Indexes for table `tb_order_dropoff`
 --
 ALTER TABLE `tb_order_dropoff`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_dropoff`),
   ADD KEY `id_user` (`id_user`),
   ADD KEY `id_jenis` (`id_jenis`),
   ADD KEY `id_subjenis` (`id_subjenis`);
 
 --
--- Indeks untuk tabel `tb_order_pickup`
+-- Indexes for table `tb_order_pickup`
 --
 ALTER TABLE `tb_order_pickup`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_pickup`),
   ADD KEY `id_user` (`id_user`),
   ADD KEY `id_jenis` (`id_jenis`),
   ADD KEY `id_subjenis` (`id_subjenis`);
 
 --
--- Indeks untuk tabel `tb_subjenis_sampah`
+-- Indexes for table `tb_subjenis_sampah`
 --
 ALTER TABLE `tb_subjenis_sampah`
   ADD PRIMARY KEY (`id_subjenis`),
   ADD KEY `id_jenis` (`id_jenis`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tb_jenis_sampah`
+-- AUTO_INCREMENT for table `histori`
+--
+ALTER TABLE `histori`
+  MODIFY `id_histori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tb_jenis_sampah`
 --
 ALTER TABLE `tb_jenis_sampah`
   MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_order`
+-- AUTO_INCREMENT for table `tb_order`
 --
 ALTER TABLE `tb_order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_order_dropoff`
+-- AUTO_INCREMENT for table `tb_order_dropoff`
 --
 ALTER TABLE `tb_order_dropoff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dropoff` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_order_pickup`
+-- AUTO_INCREMENT for table `tb_order_pickup`
 --
 ALTER TABLE `tb_order_pickup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pickup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_subjenis_sampah`
+-- AUTO_INCREMENT for table `tb_subjenis_sampah`
 --
 ALTER TABLE `tb_subjenis_sampah`
   MODIFY `id_subjenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tb_order_dropoff`
+-- Constraints for table `histori`
+--
+ALTER TABLE `histori`
+  ADD CONSTRAINT `histori_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE,
+  ADD CONSTRAINT `histori_ibfk_2` FOREIGN KEY (`id_pickup`) REFERENCES `tb_order_pickup` (`id_pickup`) ON DELETE SET NULL,
+  ADD CONSTRAINT `histori_ibfk_3` FOREIGN KEY (`id_dropoff`) REFERENCES `tb_order_dropoff` (`id_dropoff`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `tb_order_dropoff`
 --
 ALTER TABLE `tb_order_dropoff`
   ADD CONSTRAINT `tb_order_dropoff_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE,
@@ -314,7 +407,7 @@ ALTER TABLE `tb_order_dropoff`
   ADD CONSTRAINT `tb_order_dropoff_ibfk_3` FOREIGN KEY (`id_subjenis`) REFERENCES `tb_subjenis_sampah` (`id_subjenis`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_order_pickup`
+-- Constraints for table `tb_order_pickup`
 --
 ALTER TABLE `tb_order_pickup`
   ADD CONSTRAINT `tb_order_pickup_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE,
@@ -322,7 +415,7 @@ ALTER TABLE `tb_order_pickup`
   ADD CONSTRAINT `tb_order_pickup_ibfk_3` FOREIGN KEY (`id_subjenis`) REFERENCES `tb_subjenis_sampah` (`id_subjenis`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_subjenis_sampah`
+-- Constraints for table `tb_subjenis_sampah`
 --
 ALTER TABLE `tb_subjenis_sampah`
   ADD CONSTRAINT `tb_subjenis_sampah_ibfk_1` FOREIGN KEY (`id_jenis`) REFERENCES `tb_jenis_sampah` (`id_jenis`) ON DELETE CASCADE;
