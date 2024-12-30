@@ -138,33 +138,6 @@ $is_logged_in = isset($_SESSION['user']);
         <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="../../js/script.js"></script>
         <script src="../../js/login.js"></script>
-        <script>
-        function loadSubjenis(jenis) {
-            const subjenisContainer = document.getElementById('subjenisCheckboxes');
-            subjenisContainer.innerHTML = '<p>Memuat...</p>';
-
-            fetch(`get_subjenis.php?jenis=${jenis}`)
-                .then(response => response.json())
-                .then(data => {
-                    subjenisContainer.innerHTML = ''; // Kosongkan konten sebelumnya
-                    data.forEach(item => {
-                        const checkbox = document.createElement('div');
-                        checkbox.classList.add('form-check');
-                        checkbox.innerHTML = `
-                            <input class="form-check-input" type="checkbox" name="subjenisSampah[]" value="${item.id_subjenis}" id="subjenis${item.id_subjenis}">
-                            <label class="form-check-label" for="subjenis${item.id_subjenis}">
-                                ${item.subjenis_sampah}
-                            </label>
-                        `;
-                        subjenisContainer.appendChild(checkbox);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    subjenisContainer.innerHTML = '<p>Error memuat subjenis.</p>';
-                });
-        }
-        </script>
     </body>
 
 </html>

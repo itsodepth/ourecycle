@@ -1,3 +1,9 @@
+<?php
+session_start();
+$is_logged_in = isset($_SESSION['user']);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,23 +69,28 @@
                 </div>
 
                 <!-- Jenis Sampah -->
-                <div class="mb-3" id="jenisSampahContainer">
+                <div class="mb-3">
                     <label for="jenisSampah" class="form-label">Jenis Sampah</label>
-                    <select id="jenisSampah" name="jenisSampah" class="form-select" onchange="showSubjenisContainer()">
+                    <select id="jenisSampah" name="jenisSampah" class="form-select" onchange="loadSubjenis(this.value)"
+                        required>
                         <option value="">Pilih Jenis Sampah</option>
-                        <option value="kertas">Kertas</option>
-                        <option value="plastik">Plastik</option>
-                        <option value="elektronik">Elektronik</option>
-                        <option value="botol_kaca">Botol Kaca</option>
-                        <option value="besi_logam">Besi & Logam</option>
-                        <option value="organik">Organik</option>
+                        <?php
+                    // Koneksi database
+                    require '../../profile/db.php'; // Pastikan path ke db.php benar
+                    $stmt = $pdo->query("SELECT id_jenis, jenis_sampah FROM tb_jenis_sampah");
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo '<option value="' . htmlspecialchars($row['id_jenis']) . '">' . ucfirst(htmlspecialchars($row['jenis_sampah'])) . '</option>';
+                    }
+                    ?>
                     </select>
                 </div>
 
                 <!-- Subjenis Sampah -->
-                <div class="mb-3" id="subjenisContainer" style="display: none;">
+                <div class="mb-3" id="subjenisContainer">
                     <label class="form-label">Subjenis Sampah</label>
-                    <div id="subjenisOptions"></div>
+                    <div id="subjenisCheckboxes">
+                        <!-- Checkbox akan dimuat di sini -->
+                    </div>
                 </div>
 
                 <!-- Berat Sampah -->
@@ -147,8 +158,8 @@
 
                 <!-- Tanggal Pengambilan -->
                 <div class="mb-3">
-                    <label for="tanggalPengambilan" class="form-label">Tanggal Pengambilan Sampah</label>
-                    <input type="date" id="tanggalPengambilan" name="tanggalPengambilan" class="form-control" required>
+                    <label for="tanggalPengantaran" class="form-label">Tanggal Pengantaran Sampah</label>
+                    <input type="date" id="tanggalPengantaran" name="tanggalPengantaran" class="form-control" required>
                 </div>
 
                 <!-- Jam Mulai & Akhir -->
